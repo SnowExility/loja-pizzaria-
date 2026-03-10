@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bella Napoli Pizzaria – Delivery Oficial</title>
+  <meta name="description" content="As melhores pizzas artesanais do Rio. Delivery rápido, ingredientes frescos." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- LOADING -->
+<div id="loading-screen">
+  <div class="loader-inner">
+    <div class="loader-pizza">
+      <div class="lp-ring"></div>
+      <div class="lp-ring2"></div>
+      <div class="lp-dot"></div>
+    </div>
+    <p class="loader-text">Preparando tudo com amor…</p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-wrap">
+    <a class="nav-logo" href="#" onclick="goSection('home');return false;">
+      <span>🍕</span><span>Bella <em>Napoli</em></span>
+    </a>
+    <ul class="nav-menu" id="nav-menu">
+      <li><a href="#" onclick="goSection('home');closeMob();return false;" data-s="home"><i class="fa fa-house"></i> Home</a></li>
+      <li><a href="#" onclick="goSection('cardapio');closeMob();return false;" data-s="cardapio"><i class="fa fa-pizza-slice"></i> Cardápio</a></li>
+      <li><a href="#" onclick="goSection('promocoes');closeMob();return false;" data-s="promocoes"><i class="fa fa-fire"></i> Promoções</a></li>
+      <li><a href="#" onclick="goSection('cardapio');filterCategory('bebidas');closeMob();return false;"><i class="fa fa-wine-glass"></i> Bebidas</a></li>
+      <li><a href="#" onclick="goSection('cardapio');filterCategory('acompanhamentos');closeMob();return false;"><i class="fa fa-drumstick-bite"></i> Acompanhamentos</a></li>
+      <li><a href="#" onclick="goSection('contato');closeMob();return false;" data-s="contato"><i class="fa fa-location-dot"></i> Contato</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="theme-btn" onclick="toggleTheme()" title="Modo escuro">
+        <i class="fa fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="nav-cart-btn" onclick="goSection('carrinho')" title="Carrinho">
+        <i class="fa fa-cart-shopping"></i>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- ======= HOME ======= -->
+<section id="home" class="page active">
+
+  <div class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">🏆 Melhor Delivery do Rio 2024</span>
+      <h1 class="hero-h1">Bella <em>Napoli</em></h1>
+      <p class="hero-sub">Pizza Artesanal de Verdade</p>
+      <p class="hero-desc">Massa fermentada 72h, molho San Marzano e ingredientes selecionados diariamente. Cada pizza, uma experiência única.</p>
+      <div class="hero-btns">
+        <button class="btn-red" onclick="goSection('cardapio')"><i class="fa fa-utensils"></i> Ver Cardápio</button>
+        <button class="btn-ghost" onclick="goSection('pagamento')"><i class="fa fa-bag-shopping"></i> Fazer Pedido</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hs"><strong>+5.000</strong><span>pedidos/mês</span></div>
+        <div class="hs-sep"></div>
+        <div class="hs"><strong>4.9⭐</strong><span>avaliação</span></div>
+        <div class="hs-sep"></div>
+        <div class="hs"><strong>≤40min</strong><span>entrega</span></div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-ring"></div>
+      <img class="hero-pizza" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=640&q=85" alt="Pizza artesanal" />
+    </div>
+  </div>
+
+  <div class="feat-bar">
+    <div class="feat"><i class="fa fa-motorcycle"></i><div><b>Entrega Rápida</b><span>Até 40 min</span></div></div>
+    <div class="feat"><i class="fa fa-leaf"></i><div><b>Ingredientes Frescos</b><span>Selecionados todo dia</span></div></div>
+    <div class="feat"><i class="fa fa-fire-flame-curved"></i><div><b>Forno a Lenha 450°C</b><span>Sabor autêntico</span></div></div>
+    <div class="feat"><i class="fa fa-shield-halved"></i><div><b>Garantia Total</b><span>Ou devolvemos</span></div></div>
+  </div>
+
+  <div class="section-wrap container">
+    <div class="sec-head">
+      <span class="sec-tag">⭐ Destaque</span>
+      <h2>Campeãs de Vendas</h2>
+      <p>As favoritas dos nossos clientes — peça agora!</p>
+    </div>
+    <div class="prod-grid" id="home-grid"></div>
+    <div class="ctr"><button class="btn-outline" onclick="goSection('cardapio')">Ver Cardápio Completo <i class="fa fa-arrow-right"></i></button></div>
+  </div>
+
+  <div class="promo-strip">
+    <div class="container promo-strip-in">
+      <div class="psi-txt"><span>🔥</span><span><strong>Frete Grátis</strong> acima de R$&nbsp;60 · <strong>Terça do Frango:</strong> 30% OFF toda terça</span></div>
+      <button class="btn-red sm" onclick="goSection('promocoes')">Ver Promoções</button>
+    </div>
+  </div>
+
+  <div class="dark-block">
+    <div class="container">
+      <div class="sec-head lt">
+        <span class="sec-tag">💬 Depoimentos</span>
+        <h2>O que dizem nossos clientes</h2>
+      </div>
+      <div class="rev-grid">
+        <div class="rev-card"><div class="stars">★★★★★</div><p>"A melhor pizza que já comi! Massa incrível e ingredientes frescos. Nunca mais peço de outro lugar!"</p><div class="rev-auth"><div class="av">AM</div><div><b>Ana Maria S.</b><span>2 anos de cliente</span></div></div></div>
+        <div class="rev-card feat"><div class="stars">★★★★★</div><p>"Entrega rápida e pizza quentinha! O frango com catupiry é simplesmente divino. Recomendo demais!"</p><div class="rev-auth"><div class="av">RC</div><div><b>Roberto C.</b><span>1 ano de cliente</span></div></div></div>
+        <div class="rev-card"><div class="stars">★★★★★</div><p>"Pedi a quatro queijos e me apaixonei. Atendimento excelente e preço justo. Parabéns à equipe!"</p><div class="rev-auth"><div class="av">LF</div><div><b>Larissa F.</b><span>6 meses de cliente</span></div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-wrap container">
+    <div class="sec-head">
+      <span class="sec-tag">🏅 Diferenciais</span>
+      <h2>Por que nos escolher?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-ico">🍅</div><h3>Molho Artesanal</h3><p>Tomates San Marzano importados e ervas frescas toda manhã.</p></div>
+      <div class="why-card"><div class="why-ico">🫕</div><h3>Massa de 72h</h3><p>Fermentação natural que garante leveza e sabor únicos.</p></div>
+      <div class="why-card"><div class="why-ico">🧀</div><h3>Queijo Premium</h3><p>Mozzarella de búfala e queijos importados para o derretimento perfeito.</p></div>
+      <div class="why-card"><div class="why-ico">🔥</div><h3>Forno 450°C</h3><p>Assamos cada pizza em 90 segundos preservando toda a crocância.</p></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ======= CARDÁPIO ======= -->
+<section id="cardapio" class="page">
+  <div class="page-header">
+    <div class="container">
+      <h1>🍕 Cardápio</h1>
+      <p>Ingredientes frescos, sabor incomparável</p>
+    </div>
+  </div>
+  <div class="container menu-section">
+    <div class="menu-controls">
+      <div class="search-box">
+        <i class="fa fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Buscar pizza, bebida, acompanhamento…" oninput="handleSearch()" />
+        <button id="clear-search" class="clear-btn hidden" onclick="clearSearch()"><i class="fa fa-xmark"></i></button>
+      </div>
+      <div class="cat-btns">
+        <button class="cbt active" data-cat="all" onclick="filterCategory('all')">🍽 Todos</button>
+        <button class="cbt" data-cat="pizzas" onclick="filterCategory('pizzas')">🍕 Pizzas</button>
+        <button class="cbt" data-cat="bebidas" onclick="filterCategory('bebidas')">🥤 Bebidas</button>
+        <button class="cbt" data-cat="acompanhamentos" onclick="filterCategory('acompanhamentos')">🍟 Acompanhamentos</button>
+      </div>
+    </div>
+    <div id="no-results" class="no-res hidden">
+      <i class="fa fa-face-frown"></i>
+      <p>Nenhum item para "<span id="nr-term"></span>"</p>
+      <button class="btn-outline sm" onclick="clearSearch()">Limpar busca</button>
+    </div>
+    <div class="prod-grid" id="menu-grid"></div>
+  </div>
+</section>
+
+<!-- ======= PROMOÇÕES ======= -->
+<section id="promocoes" class="page">
+  <div class="page-header red-ph">
+    <div class="container">
+      <h1>🔥 Promoções</h1>
+      <p>Ofertas exclusivas por tempo limitado</p>
+    </div>
+  </div>
+  <div class="container promo-page">
+    <div class="promo-hero">
+      <div class="ph-body">
+        <span class="promo-pill">🔥 MAIS POPULAR</span>
+        <h2>Combo Família</h2>
+        <p>2 pizzas grandes + 2 refrigerantes 2L por um preço imperdível!</p>
+        <div class="price-row"><s>R$ 119,00</s><strong>R$ 89,90</strong></div>
+        <button class="btn-red" onclick="addPromoCombo()"><i class="fa fa-cart-plus"></i> Adicionar Combo</button>
+      </div>
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=80" alt="Combo pizza" />
+    </div>
+    <div class="promo-cards">
+      <div class="promo-card"><span class="promo-pill yellow">⚡ TODA TERÇA</span><h3>Terça do Frango</h3><p>Pizzas de frango com 30% de desconto toda terça-feira!</p><div class="price-row"><s>R$ 59,90</s><strong>R$ 41,93</strong></div><button class="btn-outline-red" onclick="goSection('cardapio');filterCategory('pizzas')">Ver Pizzas</button></div>
+      <div class="promo-card"><span class="promo-pill green">🎂 ANIVERSÁRIO</span><h3>Pizza de Aniversário</h3><p>No seu aniversário, ganhe uma pizza doce de brinde com qualquer pedido!</p><strong style="color:var(--green);font-size:1.3rem">GRÁTIS!</strong></div>
+      <div class="promo-card"><span class="promo-pill blue">📱 1ª COMPRA</span><h3>Boas-Vindas</h3><p>Na sua primeira compra, use o cupom e ganhe 15% off em qualquer pedido.</p><div class="coupon-box">Cupom: <strong>BELLABEM15</strong></div></div>
+      <div class="promo-card"><span class="promo-pill">🚀 FRETE GRÁTIS</span><h3>Frete Zero</h3><p>Pedidos acima de R$&nbsp;60 para toda a cidade sem taxa de entrega!</p><strong style="color:var(--green);font-size:1.3rem">R$ 0,00</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CARRINHO ======= -->
+<section id="carrinho" class="page">
+  <div class="page-header">
+    <div class="container">
+      <h1>🛒 Carrinho</h1>
+      <p>Revise seus itens antes de pagar</p>
+    </div>
+  </div>
+  <div class="container cart-wrap">
+    <div id="cart-list"></div>
+    <div id="cart-aside"></div>
+  </div>
+</section>
+
+<!-- ======= PAGAMENTO ======= -->
+<section id="pagamento" class="page">
+  <div class="page-header">
+    <div class="container">
+      <h1>💳 Pagamento</h1>
+      <p>Finalize seu pedido com segurança</p>
+    </div>
+  </div>
+  <div class="container pay-wrap">
+    <div class="pay-left">
+      <div class="pay-card">
+        <h3><i class="fa fa-location-dot"></i> Dados de Entrega</h3>
+        <div class="frow">
+          <div class="fg full"><label>Nome completo *</label><input type="text" id="p-name" placeholder="Seu nome completo" /></div>
+          <div class="fg full"><label>WhatsApp / Telefone *</label><input type="tel" id="p-phone" placeholder="(21) 99999-9999" /></div>
+          <div class="fg full"><label>Endereço (rua e número) *</label><input type="text" id="p-address" placeholder="Rua das Pizzas, 123" /></div>
+          <div class="fg"><label>Bairro *</label><input type="text" id="p-bairro" placeholder="Bairro" /></div>
+          <div class="fg"><label>Complemento</label><input type="text" id="p-comp" placeholder="Apto, bloco…" /></div>
+          <div class="fg"><label>CEP</label><input type="text" id="p-cep" placeholder="00000-000" /></div>
+          <div class="fg full"><label>Observações</label><textarea id="p-obs" rows="2" placeholder="Sem cebola, campainha não funciona…"></textarea></div>
+        </div>
+      </div>
+      <div class="pay-card">
+        <h3><i class="fa fa-wallet"></i> Forma de Pagamento</h3>
+        <div class="pay-methods">
+          <label class="pm"><input type="radio" name="pay" value="pix" checked onchange="onPayChange()" /><div class="pm-box"><i class="fa fa-qrcode"></i><span>PIX</span><small>5% desc.</small></div></label>
+          <label class="pm"><input type="radio" name="pay" value="cartao" onchange="onPayChange()" /><div class="pm-box"><i class="fa fa-credit-card"></i><span>Cartão</span><small>na entrega</small></div></label>
+          <label class="pm"><input type="radio" name="pay" value="dinheiro" onchange="onPayChange()" /><div class="pm-box"><i class="fa fa-money-bill-wave"></i><span>Dinheiro</span><small>troco ok</small></div></label>
+        </div>
+        <div id="troco-wrap" class="hidden fg full" style="margin-top:12px"><label>Troco para quanto?</label><input type="text" id="p-troco" placeholder="Ex: R$ 100,00" /></div>
+      </div>
+      <div class="aviso-comp" id="aviso-pix">
+        <i class="fa fa-triangle-exclamation"></i>
+        <p><strong>Atenção:</strong> Enviar o comprovante PIX para <strong>(21) 99349-1269</strong> é <strong>OBRIGATÓRIO</strong> para confirmar o pedido. Pedidos sem comprovante não serão preparados.</p>
+      </div>
+    </div>
+    <div class="pay-right">
+      <div class="pay-summary">
+        <h3>📋 Resumo do Pedido</h3>
+        <div id="pay-items"></div>
+        <div id="pay-totals"></div>
+        <button class="btn-red full mt-12" onclick="finalizarPedido()"><i class="fa fa-circle-check"></i> Finalizar Pedido</button>
+        <button class="btn-whats full mt-8" onclick="sendWhatsApp()"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</button>
+        <p class="pay-lock"><i class="fa fa-lock"></i> Pagamento 100% seguro</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CONTATO ======= -->
+<section id="contato" class="page">
+  <div class="page-header">
+    <div class="container">
+      <h1>📍 Contato</h1>
+      <p>Estamos aqui para você!</p>
+    </div>
+  </div>
+  <div class="container contact-wrap">
+    <div class="contact-left">
+      <div class="contact-card">
+        <div class="ci"><div class="ci-ico"><i class="fa fa-location-dot"></i></div><div><h4>Endereço</h4><p>Rua das Pizzas, 1234 – Bairro Nápoles<br/>Rio de Janeiro – RJ</p></div></div>
+        <div class="ci"><div class="ci-ico"><i class="fa fa-phone"></i></div><div><h4>Telefone</h4><p>(21) 3456-7890</p></div></div>
+        <div class="ci"><div class="ci-ico"><i class="fab fa-whatsapp"></i></div><div><h4>WhatsApp</h4><a href="https://wa.me/5521993491269" target="_blank">(21) 99349-1269</a></div></div>
+        <div class="ci"><div class="ci-ico"><i class="fa fa-envelope"></i></div><div><h4>E-mail</h4><p>contato@bellanapoli.com.br</p></div></div>
+      </div>
+      <div class="contact-card">
+        <h4 class="hrs-title"><i class="fa fa-clock"></i> Horário de Funcionamento</h4>
+        <div class="hrs-row"><span>Segunda a Quinta</span><b>18h – 23h</b></div>
+        <div class="hrs-row"><span>Sexta e Sábado</span><b class="open">18h – 00h</b></div>
+        <div class="hrs-row"><span>Domingo</span><b class="open">17h – 23h</b></div>
+        <p class="hrs-note">⚡ Delivery até 30 min antes do fechamento</p>
+      </div>
+      <div class="contact-card">
+        <h4>Redes Sociais</h4>
+        <div class="soc-row">
+          <a href="#" class="soc-btn ig"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="#" class="soc-btn fb"><i class="fab fa-facebook"></i> Facebook</a>
+          <a href="https://wa.me/5521993491269" target="_blank" class="soc-btn wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-right">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235280.24199370576!2d-43.45696754999999!3d-22.910966700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bde559108a05b%3A0x50dc426c672fd24e!2sRio%20de%20Janeiro%2C%20RJ!5e0!3m2!1spt-BR!2sbr!4v1700000000000" allowfullscreen loading="lazy" title="Localização"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-body">
+    <div class="container footer-grid">
+      <div class="ft-brand">
+        <div class="ft-logo">🍕 Bella <em>Napoli</em></div>
+        <p>Desde 2010 servindo as melhores pizzas artesanais do Rio com ingredientes frescos e muito amor.</p>
+        <div class="ft-soc">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="https://wa.me/5521993491269" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="ft-links">
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#" onclick="goSection('home');return false;">Início</a></li>
+          <li><a href="#" onclick="goSection('cardapio');return false;">Cardápio</a></li>
+          <li><a href="#" onclick="goSection('promocoes');return false;">Promoções</a></li>
+          <li><a href="#" onclick="goSection('contato');return false;">Contato</a></li>
+          <li><a href="pedidos.html" target="_blank">📋 Painel de Pedidos</a></li>
+        </ul>
+      </div>
+      <div class="ft-links">
+        <h5>Cardápio</h5>
+        <ul>
+          <li><a href="#" onclick="goSection('cardapio');filterCategory('pizzas');return false;">🍕 Pizzas</a></li>
+          <li><a href="#" onclick="goSection('cardapio');filterCategory('bebidas');return false;">🥤 Bebidas</a></li>
+          <li><a href="#" onclick="goSection('cardapio');filterCategory('acompanhamentos');return false;">🍟 Acompanhamentos</a></li>
+          <li><a href="#" onclick="goSection('promocoes');return false;">🔥 Promoções</a></li>
+        </ul>
+      </div>
+      <div class="ft-contact">
+        <h5>Contato</h5>
+        <p><i class="fa fa-location-dot"></i> Rua das Pizzas, 1234 – RJ</p>
+        <p><i class="fa fa-phone"></i> (21) 3456-7890</p>
+        <p><i class="fab fa-whatsapp"></i> (21) 99349-1269</p>
+        <p><i class="fa fa-clock"></i> Seg–Dom: 18h às 23h</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container fbot">
+      <p>© 2024 Bella Napoli Pizzaria – Todos os direitos reservados</p>
+      <p>Feito com ❤️ e muito queijo 🧀</p>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TOP -->
+<button id="scroll-top" onclick="scrollToTop()"><i class="fa fa-chevron-up"></i></button>
+
+<!-- PIX MODAL -->
+<div id="pix-modal" class="modal-overlay" onclick="closePixModal(event)">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closePixModal()">&times;</button>
+    <div class="modal-badge-ok">✅ Pedido Registrado!</div>
+    <h3 class="modal-h3">Pague via PIX</h3>
+    <p class="modal-p">Escaneie o QR Code ou use o Copia e Cola</p>
+    <div id="qr-wrap" class="qr-wrap"></div>
+    <p class="cc-label">PIX Copia e Cola:</p>
+    <div class="cc-box" id="pix-cc"></div>
+    <button class="btn-copy" onclick="copyPix()"><i class="fa fa-copy"></i> Copiar Código PIX</button>
+    <div class="modal-val" id="modal-total-val"></div>
+    <div class="modal-warn">
+      <i class="fa fa-triangle-exclamation"></i>
+      <p>Envio do comprovante para o WhatsApp é <strong>OBRIGATÓRIO</strong> para confirmar seu pedido!</p>
+    </div>
+    <a href="https://wa.me/5521993491269" target="_blank" class="btn-whats full mt-8">
+      <i class="fab fa-whatsapp"></i> Enviar Comprovante (OBRIGATÓRIO)
+    </a>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"><i class="fa fa-circle-check"></i><span id="toast-msg">ok</span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
